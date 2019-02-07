@@ -22,7 +22,6 @@ export const friendsReducer = (state = intialState, action) => {
             }
 
         case FETCHING_FRIENDS_SUCCESS:
-            console.log(action.payload)
             return {
                 ...state,
                 fetchingFriends: false,
@@ -43,9 +42,21 @@ export const friendsReducer = (state = intialState, action) => {
             }
 
         case ADDING_FRIENDS_SUCCESS:
+            const newFriend = {
+                value: action.payload
+            }
             return {
                 ...state,
                 savingFriends: false,
+                friends: [...state.friends, newFriend],
+                error: null
+            }
+            
+        case ADDING_FRIENDS_ERROR:
+            return {
+                ...state,
+                savingFriends: false,
+                error: action.payload
             }    
             
         default:

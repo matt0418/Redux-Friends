@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getFriends } from '../actions'
-import { Friends, CreateFriendForm, UpdateFriendForm } from '../components'
+import { Friends, CreateFriendForm } from '../components'
+import { Spinner } from "reactstrap";
+import './FriendsView.css'
 
 class FriendsView extends React.Component {
     // constructor() {
@@ -13,12 +15,11 @@ class FriendsView extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return(
-            <div>
-                <Friends friends={this.props.friends}/>
+            <div className = 'container'>
+                <h1>Friend List</h1>
+                {this.props.fetchingFriends ? <Spinner className="spinner" type="grow" style={{ width: '10rem', height: '10rem' }}/> : <Friends friends={this.props.friends}/>}
                 <CreateFriendForm />
-                <UpdateFriendForm />
             </div>
         )
     }

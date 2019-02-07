@@ -1,15 +1,15 @@
 import React from 'react'
+import './Friends.css'
 
 const Friends = props => {
-    console.log(props)
     return(
         <div>
-            {props.friends.map(friend => {
+            {props.friends.map((friend, id) => {
                 return (
-                <div className ="friend">
-                    <p>{friend.name}</p>
-                    <p>{friend.age}</p>
-                    <p>{friend.email}</p>
+                <div className ="friend" key={id}>
+                    <p>Name: {friend.name}</p>
+                    <p>Age: {friend.age}</p>
+                    <p>Email: {friend.email}</p>
                 </div>
                 )    
             })}

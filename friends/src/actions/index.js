@@ -19,12 +19,12 @@ export const getFriends = () => dispatch => {
         })
 }
 
-export const addFriend = e => dispatch => {
+export const addFriend = newFriend => dispatch => {
     dispatch({ type: ADDING_FRIENDS_START });
-    e.preventDefault()
     axios
-        .post(`http://localhost:5000/api/friends`)
+        .post(`http://localhost:5000/api/friends`, newFriend)
         .then(res => {
+            console.log(res)
             dispatch({ type: ADDING_FRIENDS_SUCCESS, payload: res.data })
         })
         .then(err => {
