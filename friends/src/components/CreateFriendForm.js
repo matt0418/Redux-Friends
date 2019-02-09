@@ -17,7 +17,9 @@ class CreateFriendForm extends React.Component {
 
     handleChanges = e => {
         this.setState({
-            newFriend:{...this.state.newFriend, [e.target.name] : e.target.value}
+            newFriend:{
+                ...this.state.newFriend, 
+                [e.target.name] : e.target.value}
         })
     }
 
