@@ -1,0 +1,9 @@
+.add-friend {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15%;
+}
+
+.add-friend input {
+    margin-bottom: 10%;
+}
